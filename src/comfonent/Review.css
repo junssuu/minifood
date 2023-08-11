@@ -1,0 +1,9 @@
+.reviewimg > img {
+  width: 30%;
+  height: 30%;
+  margin: 0.3%;
+  margin-top: 10%
+}
+.reviewimg{
+  display: flex;
+}

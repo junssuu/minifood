@@ -1,0 +1,24 @@
+
+.top {
+  background-color: rgb(250, 240, 215);
+}
+
+.top > h2 {
+  font-style: normal;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  justify-content : center;
+}
+
+.logo {
+  width: 100%;
+  background-color: rgb(255, 217, 192);
+  height: 60px;
+}
+
+.logo > img {
+  margin-left: 3%;
+  height: 60px;
+  width: 100px;
+}

@@ -1,0 +1,11 @@
+
+.region {
+  text-align: center;
+  margin-left: 15%;
+  margin-top: 45%;
+  font-size: 35px;
+}
+
+.region > img {
+  width: 70%;
+}

@@ -1,0 +1,12 @@
+.menubar {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.banner {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 2%;
+}
