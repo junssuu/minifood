@@ -6,8 +6,7 @@ import StyledSlider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./MainCarousel.css";
-import { Route, Router, Routes, useNavigate } from "react-router-dom";
-import Login from "../loginForm/Login";
+import { useNavigate } from "react-router-dom";
 
 const MainCarousel = () => {
 
@@ -32,8 +31,11 @@ const MainCarousel = () => {
       </StyledSlider>
       <button class = "orderbutton" onClick={() => {
         let temp = window.confirm("로그인 하시겠습니까?");
-        if(temp) {
-          {navigate('/cart')};
+        console.log(temp);
+        if(temp === true) {
+          navigate('/Login');
+        } else {
+          alert("로그인 후 주문이 가능합니다.");
         }
       }}>구매하기</button>
       <p class="price"> 가격 : 5,900원</p>

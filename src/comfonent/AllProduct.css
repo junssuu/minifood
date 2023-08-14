@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.allList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 4%;
+  margin-left: 8%;
+}
+
+.allList img{
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+}
+
+.topletter > p {
+  font-size: 50px;
+  text-align: center;
+}
+
+.allList p {
+  margin: 2px;
+  margin-right: 17%;
+  font-size: 16px;
+  font-weight : bolder;
+  text-align: center;
+}

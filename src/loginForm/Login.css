@@ -8,11 +8,16 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-.login-wrapper{
-  width: 400px;
-  height: 350px;
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 600px;
   padding: 40px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .login-wrapper > h2{
@@ -20,6 +25,7 @@ body{
   color: #6A24FE;
   margin-bottom: 20px;
 }
+
 #login-form > input{
   width: 100%;
   height: 48px;

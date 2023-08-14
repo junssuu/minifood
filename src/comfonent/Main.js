@@ -1,14 +1,17 @@
 import "./Main.css"
 import MainCarousel from "./MainCarousel";
-import bannerimg from "./img/배너.jpg";
+
 
 const Main = () => {
   return (
+
     <div>
-      <img class = "banner" src={bannerimg}/>
+      <div className="banner">
+        <h1>배너 이미지 구하는 중</h1>
+      </div>
 
       <div class="menubar">
-        <p>전체 메뉴</p>
+        <p>추천 메뉴</p>
         <MainCarousel />
       </div>
 
