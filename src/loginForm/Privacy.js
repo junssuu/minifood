@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../comfonent/Header";
 import "./Privacy.css"
 
 
 const Privacy = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div>
@@ -30,7 +32,8 @@ const Privacy = () => {
             </li>
           </ul>
           <input type="submit" value="주문하기" onClick={() => {
-            alert('주문완료.');
+            alert('주문이 완료 되었습니다.');
+            navigate('/');
           }} />
         </form>
       </div>

@@ -1,31 +1,48 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Cart.css';
+import Header from './Header';
 
-const Cart = ({ cartItems, handleAddToCart }) => {
+const Cart = ({ cartItems, handleQuantityChange }) => {
+
+  //장바구니 총 금액 계산
+  const totalPrice = cartItems.reduce((total, item) => total + parseInt(item.price.replace(',', '')) * item.quantity, 0);
   const navigate = useNavigate();
 
   return (
-    <div className="cart-container">
-      <h2>장바구니</h2>
-      {cartItems && cartItems.length > 0 ? (
-        <div>
+
+      <div>
+        <Header />
+        <h1>장바구니</h1>
+        <ul>
           {cartItems.map((item, i) => (
-            <div key={i} className="cart-item">
-              <img src={item.image} alt={item.name} />
-              <div className="item-details">
-                <p>{item.name}</p>
-                <p>{item.price}원</p>
+            <li key={i}>
+              <div className="cart-item">
+                <div className="product-info">
+                  <img src={item.image} alt={item.name} />
+                  <div className="item-info">
+                    <p>
+                      {item.name} - {item.price}원 (수량: {item.quantity})
+                      <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>
+                        -
+                      </button>
+                      <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
+                        +
+                      </button>
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </li>
           ))}
+        </ul>
+        <div className="cart-summary">
+          <p>총 금액: {totalPrice}원</p>
+          <div className="button-container">
+            <button onClick={() => navigate('/Allproduct')}>상품 추가하기</button>
+            <button onClick={() => navigate('/privacy')}>주문하기</button>
+          </div>
         </div>
-      ) : (
-        <p>장바구니에 상품이 없습니다.</p>
-      )}
-      <button onClick={() => navigate('/Allproduct')} className="continue-shopping">
-        쇼핑 계속하기
-      </button>
-    </div>
+      </div>
   );
 };
 

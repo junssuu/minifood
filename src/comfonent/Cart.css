@@ -1,0 +1,74 @@
+h1 {
+  margin: 3%;
+}
+
+.cart-container {
+  padding: 20px;
+}
+
+.cart-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-info img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.item-info button {
+  margin-left: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.cart-summary p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.cart-summary button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* 주문하기 버튼과 상품 추가하기 버튼을 오른쪽에 나란히 배치 */
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}

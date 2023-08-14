@@ -9,18 +9,31 @@ import Customer from './comfonent/Customer';
 import Cart from './comfonent/Cart';
 
 function App(props) {
-  const [data, setData] = useState({
-    id: '',
-    name: '',
-    price: '',
-    image: '',
-  });
+  const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((cartItem) =>
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        )
+      );
+    } else {
+      setCartItems((prevCartItems) => [...prevCartItems, { ...item, quantity: 1 }]);
+    }
   };
 
-  const [cartItems, setCartItems] = useState([]);
+  const handleQuantityChange = (itemId, newQuantity) => {
+    if (newQuantity <= 0) {
+      setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+    } else {
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((item) => (item.id === itemId ? { ...item, quantity: newQuantity } : item))
+      );
+    }
+  };
+
 
   return (
     <div className="App">
@@ -30,10 +43,12 @@ function App(props) {
         {/* 전체상품 */}
         <Route
           path="/Allproduct"
-          element={<AllProduct setData={setData} handleAddToCart={handleAddToCart} />}
+          element={<AllProduct handleAddToCart={handleAddToCart} />}
         />
         {/* 장바구니 */}
-        <Route path="/Cart" element={<Cart cartItems={cartItems} />} />
+        <Route path="/Cart" element={<Cart cartItems={cartItems} 
+        handleQuantityChange={handleQuantityChange} />}
+        />
         {/* 고객센터 */}
         <Route path="/Customer" element={<Customer />} />
         {/* 로그인페이지 */}

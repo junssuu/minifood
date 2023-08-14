@@ -9,10 +9,10 @@ import 그림6 from './img/그림6.JPG';
 import 그림7 from './img/그림7.JPG';
 import 그림8 from './img/그림8.JPG';
 import { useNavigate } from 'react-router-dom';
-import Cart from './Cart';
+import Header from './Header';
 
 
-const AllProduct = ({setData, handleAddToCart}) => {
+const AllProduct = ({ handleAddToCart }) => {
   const item = [
     { id: 1, name: '상품1', price: '5,900', image: 그림1 },
     { id: 2, name: '상품2', price: '5,900', image: 그림2 },
@@ -24,16 +24,14 @@ const AllProduct = ({setData, handleAddToCart}) => {
     { id: 8, name: '상품8', price: '7,900', image: 그림8 }
   ];
 
-  const [addToCart, setAddToCart] = useState([]);
   const navigate = useNavigate();
   let tmp;
 
   const handleAddToCartClick = (data) => {
     const temp = window.confirm('장바구니에 담으시겠습니까?');
     if (temp) {
-      handleAddToCart((prevCart) => [...prevCart, data]);
+      handleAddToCart(data);
       const tmp = window.confirm('확인: 장바구니 이동, 취소: 계속 쇼핑');
-      console.log(addToCart);
       if (tmp) {
         navigate('/Cart');
       }
@@ -42,7 +40,8 @@ const AllProduct = ({setData, handleAddToCart}) => {
 
   return (
     <>
-    <h1>전체 상품 리스트</h1>
+      <Header />
+      <h1>전체 상품 리스트</h1>
       <div className='allList'>
         {item.map((data, i) => (
           <div key={i}>
