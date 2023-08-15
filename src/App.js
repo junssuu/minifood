@@ -9,31 +9,32 @@ import Customer from './comfonent/Customer';
 import Cart from './comfonent/Cart';
 
 function App(props) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItem, setCartItem] = useState([]);
 
-  const handleAddToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
-    if (existingItem) {
-      setCartItems((prevCartItems) =>
+  const AddToCart = (item) => {
+    const sameItem = cartItem.find((cartItem) => cartItem.id === item.id);
+    if (sameItem) {
+      setCartItem((prevCartItems) =>
         prevCartItems.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+          cartItem.id === item.id ? { ...cartItem, count: cartItem.count + 1 } : cartItem
         )
       );
     } else {
-      setCartItems((prevCartItems) => [...prevCartItems, { ...item, quantity: 1 }]);
+      setCartItem((prevcartProduct) => [...prevcartProduct, { ...item, count: 1 }]);
     }
   };
 
-  const handleQuantityChange = (itemId, newQuantity) => {
-    if (newQuantity <= 0) {
-      setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+  const cartCountChange = (itemId, newCount) => {
+    if (newCount <= 0) {
+      setCartItem((prevsetCartProduct) =>
+        prevsetCartProduct.filter((item) => item.id !== itemId)
+      );
     } else {
-      setCartItems((prevCartItems) =>
-        prevCartItems.map((item) => (item.id === itemId ? { ...item, quantity: newQuantity } : item))
+      setCartItem((prevCartProduct) =>
+        prevCartProduct.map((item) => (item.id === itemId ? { ...item, count: newCount } : item))
       );
     }
   };
-
 
   return (
     <div className="App">
@@ -43,11 +44,12 @@ function App(props) {
         {/* 전체상품 */}
         <Route
           path="/Allproduct"
-          element={<AllProduct handleAddToCart={handleAddToCart} />}
+          element={<AllProduct AddToCart={AddToCart} />}
         />
         {/* 장바구니 */}
-        <Route path="/Cart" element={<Cart cartItems={cartItems} 
-        handleQuantityChange={handleQuantityChange} />}
+        <Route
+          path="/Cart"
+          element={<Cart cartItem={cartItem} cartCountChange={cartCountChange} />}
         />
         {/* 고객센터 */}
         <Route path="/Customer" element={<Customer />} />

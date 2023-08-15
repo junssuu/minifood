@@ -12,25 +12,25 @@ import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 
 
-const AllProduct = ({ handleAddToCart }) => {
+const AllProduct = ({ AddToCart }) => {
   const item = [
-    { id: 1, name: '상품1', price: '5,900', image: 그림1 },
-    { id: 2, name: '상품2', price: '5,900', image: 그림2 },
-    { id: 3, name: '상품3', price: '5,900', image: 그림3 },
-    { id: 4, name: '상품4', price: '5,900', image: 그림4 },
-    { id: 5, name: '상품5', price: '7,900', image: 그림5 },
-    { id: 6, name: '상품6', price: '7,900', image: 그림6 },
-    { id: 7, name: '상품7', price: '7,900', image: 그림7 },
-    { id: 8, name: '상품8', price: '7,900', image: 그림8 }
+    { id: 1, name: '상품1', price: '5900', image: 그림1, count: 0 },
+    { id: 2, name: '상품2', price: '5900', image: 그림2, count: 0 },
+    { id: 3, name: '상품3', price: '5900', image: 그림3, count: 0 },
+    { id: 4, name: '상품4', price: '5900', image: 그림4, count: 0 },
+    { id: 5, name: '상품5', price: '7900', image: 그림5, count: 0 },
+    { id: 6, name: '상품6', price: '7900', image: 그림6, count: 0 },
+    { id: 7, name: '상품7', price: '7900', image: 그림7, count: 0 },
+    { id: 8, name: '상품8', price: '7900', image: 그림8, count: 0 }
   ];
 
   const navigate = useNavigate();
   let tmp;
 
-  const handleAddToCartClick = (data) => {
+  const AddToCartClick = (data) => {
     const temp = window.confirm('장바구니에 담으시겠습니까?');
     if (temp) {
-      handleAddToCart(data);
+      AddToCart(data);
       const tmp = window.confirm('확인: 장바구니 이동, 취소: 계속 쇼핑');
       if (tmp) {
         navigate('/Cart');
@@ -45,7 +45,8 @@ const AllProduct = ({ handleAddToCart }) => {
       <div className='allList'>
         {item.map((data, i) => (
           <div key={i}>
-            <img src={data.image} alt={data.name} onClick={() => handleAddToCartClick(data)} />
+            <img src={data.image} alt={data.name} 
+            onClick={() => AddToCartClick(data)} />
             <p>
               {data.name}<br />
               {data.price}원
