@@ -9,14 +9,14 @@ const Cart = ({ cartItem, cartCountChange }) => {
   const navigate = useNavigate();
 
   return (
-
       <div>
         <Header />
         <h1>장바구니</h1>
-        <ul>
+
           {cartItem.map((data, i) => (
-            <li key={i}>
+                        
               <div className="cart-item">
+                {i + 1}
                 <div className="product-info">
                   <img src={data.image} alt={data.name} />
                   <div className="item-info">
@@ -32,14 +32,16 @@ const Cart = ({ cartItem, cartCountChange }) => {
                   </div>
                 </div>
               </div>
-            </li>
           ))}
-        </ul>
+
         <div className="cart-summary">
+
           <p>총 금액: {totalPrice}원</p>
           <div className="button-container">
             <button onClick={() => navigate('/Allproduct')}>상품 추가하기</button>
-            <button onClick={() => navigate('/privacy')}>주문하기</button>
+            <button onClick={() => {
+              alert('결제 창으로 이동합니다.')
+              navigate('/privacy')}}>주문하기</button>
           </div>
         </div>
       </div>

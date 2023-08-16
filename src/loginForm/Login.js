@@ -34,9 +34,10 @@ const Login = () => {
 
           <input type="checkbox" id="new-person" />
           <label htmlFor="new-person">회원가입</label>
-          <input type="submit" value="login" onClick={() => {
-              IdPwCheck();
-            }}/>
+          <input type="submit" value="login" onClick={(e) => {
+            e.preventDefault();
+            IdPwCheck();
+          }}/>
         </form>
       </div>
     </>

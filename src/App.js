@@ -11,6 +11,7 @@ import PurchaseHistory from './comfonent/PurchaseHistory';
 
 function App(props) {
   const [cartItem, setCartItem] = useState([]);
+  
 
   const AddToCart = (item) => {
     const sameItem = cartItem.find((cartItem) => cartItem.id === item.id);
