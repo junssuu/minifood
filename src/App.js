@@ -7,6 +7,7 @@ import Privacy from './loginForm/Privacy';
 import AllProduct from './comfonent/AllProduct';
 import Customer from './comfonent/Customer';
 import Cart from './comfonent/Cart';
+import PurchaseHistory from './comfonent/PurchaseHistory';
 
 function App(props) {
   const [cartItem, setCartItem] = useState([]);
@@ -57,6 +58,8 @@ function App(props) {
         <Route path="/Login" element={<Login />} />
         {/* 주문정보페이지 */}
         <Route path="/Privacy" element={<Privacy />} />
+        {/* 구매내역페이지 */}
+        <Route path="/PurchaseHistory" element={<PurchaseHistory />} />
       </Routes>
     </div>
   );

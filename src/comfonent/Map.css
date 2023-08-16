@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caprasimo&family=Roboto+Mono:wght@500&display=swap');
 
 .region {
   text-align: center;
   margin-left: 15%;
   margin-top: 45%;
   font-size: 35px;
+  margin: 2%;
 }
 
 .region > img {
-  width: 70%;
+  width: 60%;
+  border-radius: 15%;
+}
+
+.region p {
+  margin-bottom: 5%;
+  font-family: 'Caprasimo', cursive;
 }

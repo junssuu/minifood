@@ -7,13 +7,17 @@ import "./Review.css";
 
 const Review = () => {
   return (
-
-    <div class="reviewimg">
-      <img src={reimg1} />
-      <img src={reimg2} />
-      <img src={reimg3} />
-      <img src={reimg4} />
-    </div>
+    <>
+      <div class="revtext">
+        고객 리뷰
+      </div>
+      <div class="reviewimg">
+        <img src={reimg1} />
+        <img src={reimg2} />
+        <img src={reimg3} />
+        <img src={reimg4} />
+      </div>
+    </>
   );
 }
 

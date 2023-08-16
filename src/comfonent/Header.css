@@ -7,3 +7,12 @@
   font-size: 15px;
   margin: 20px;
 }
+
+.nav-all {
+  background-color: #028c6a;
+}
+
+.carousel-item {
+  height: 280px;
+  background-color: #fd9735;
+}

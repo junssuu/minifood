@@ -20,7 +20,7 @@ const Privacy = () => {
           <h3>주소</h3>
           <input type="text" name="userPassword" placeholder="주소" />
           <h3>결제방식 선택</h3>
-          <ul>
+          <ul class="Approval-list">
             <li>
               <label> <input type="radio" name="payment" />신용카드 </label>
             </li>

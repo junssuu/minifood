@@ -21,6 +21,16 @@ const MainCarousel = () => {
     slidesToScroll: 1,
   };
 
+  const btnStyle = {
+    color: "white",
+    background: "teal",
+    padding: ".375rem .75rem",
+    border: "1px solid teal",
+    borderRadius: ".25rem",
+    fontSize: "1rem",
+    lineHeight: 1.5,
+  };
+
   return(
     <div class="menuimg">
       <StyledSlider {...settings}>
@@ -29,7 +39,7 @@ const MainCarousel = () => {
         <img class = "recommendimg"src={img3} />
         <img class = "recommendimg"src={img4} />
       </StyledSlider>
-      <button class = "orderbutton" onClick={() => {
+      <button style = {btnStyle} class = "orderbutton" onClick={() => {
         let temp = window.confirm("로그인 하시겠습니까?");
         console.log(temp);
         if(temp === true) {

@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caprasimo&family=Roboto+Mono:wght@500&display=swap');
+
 .reviewimg > img {
   width: 30%;
   height: 30%;
   margin: 0.3%;
-  margin-top: 10%
+  margin-top: 7%;
 }
 .reviewimg{
   display: flex;
+}
+
+.revtext {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 5%;
+  font-family: 'Caprasimo', cursive;
 }

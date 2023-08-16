@@ -48,6 +48,7 @@ body{
 #login-form > input[type="checkbox"]{
   display: none;
 }
+
 #login-form > label{
   color: #999999;
 }

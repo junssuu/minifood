@@ -4,7 +4,7 @@ import "./Map.css";
 const Map = () => {
   return (
     <div class = "region">
-      배달 가능 지역
+      <p>배달 가능 지역</p>
       <img src= {mapimg} />
     </div>
   )
