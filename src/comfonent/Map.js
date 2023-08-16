@@ -5,7 +5,7 @@ const Map = () => {
   return (
     <div class = "region">
       <p>배달 가능 지역</p>
-      <img src= {mapimg} />
+      <img src= {mapimg} alt="area"/>
     </div>
   )
 }

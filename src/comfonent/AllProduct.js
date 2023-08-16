@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "./AllProduct.css";
 import 그림1 from './img/그림1.png';
 import 그림2 from './img/그림2.png';
@@ -25,8 +24,7 @@ const AllProduct = ({ AddToCart }) => {
   ];
 
   const navigate = useNavigate();
-  let tmp;
-
+  
   const AddToCartClick = (data) => {
     const temp = window.confirm('장바구니에 담으시겠습니까?');
     if (temp) {

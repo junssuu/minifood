@@ -1,5 +1,6 @@
 .navbar img {
   width: 100px;
+  cursor: pointer;
 }
 
 .me-auto{

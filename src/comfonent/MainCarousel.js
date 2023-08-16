@@ -34,10 +34,10 @@ const MainCarousel = () => {
   return(
     <div class="menuimg">
       <StyledSlider {...settings}>
-        <img class = "recommendimg"src={img1} />
-        <img class = "recommendimg"src={img2} />
-        <img class = "recommendimg"src={img3} />
-        <img class = "recommendimg"src={img4} />
+        <img class = "recommendimg"src={img1} alt="그림1"/>
+        <img class = "recommendimg"src={img2} alt="그림2"/>
+        <img class = "recommendimg"src={img3} alt="그림3"/>
+        <img class = "recommendimg"src={img4} alt="그림4"/>
       </StyledSlider>
       <button style = {btnStyle} class = "orderbutton" onClick={() => {
         let temp = window.confirm("로그인 하시겠습니까?");

@@ -14,7 +14,7 @@ const Header = () => {
       <div className="nav-all">
         <Navbar bg="dark" data-bs-theme="dark">
           <Container className='navbar'>
-            <Navbar.Brand><img src={logo} onClick = {() => {
+            <Navbar.Brand><img src={logo} alt = "logo" onClick = {() => {
               navigate('/');
             }}/></Navbar.Brand>
             <Nav className="me-auto">
