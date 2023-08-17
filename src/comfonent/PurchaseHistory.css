@@ -1,0 +1,47 @@
+.purchase-history {
+  padding: 20px;
+}
+
+.purchase-history h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.purchase-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purchase-history li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.purchase-history img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+.purchase-history p {
+  margin: 0;
+}
+
+.purchase-history .product-info {
+  display: flex;
+  align-items: center;
+}
+
+.purchase-history .item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.purchase-history .button-container {
+  margin-top: 20px;
+}

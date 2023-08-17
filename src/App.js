@@ -11,6 +11,7 @@ import PurchaseHistory from './comfonent/PurchaseHistory';
 
 function App(props) {
   const [cartItem, setCartItem] = useState([]);
+  const [purchaseHistory, setPurchaseHistory] = useState([]);
   
 
   const AddToCart = (item) => {
@@ -38,6 +39,14 @@ function App(props) {
     }
   };
 
+  const clearCart = () => {
+    setCartItem([]); // 장바구니 내역을 빈 배열로 설정하여 비우기
+  };
+
+  const addPurchaseHistory = (items) => {
+    setPurchaseHistory((prevHistory) => [...prevHistory, ...items]);
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -51,7 +60,8 @@ function App(props) {
         {/* 장바구니 */}
         <Route
           path="/Cart"
-          element={<Cart cartItem={cartItem} cartCountChange={cartCountChange} />}
+          element={<Cart cartItem={cartItem} cartCountChange={cartCountChange} 
+          clearCart={clearCart} addPurchaseHistory={addPurchaseHistory}/>}
         />
         {/* 고객센터 */}
         <Route path="/Customer" element={<Customer />} />
@@ -60,9 +70,12 @@ function App(props) {
         {/* 주문정보페이지 */}
         <Route path="/Privacy" element={<Privacy />} />
         {/* 구매내역페이지 */}
-        <Route path="/PurchaseHistory" element={<PurchaseHistory />} />
+        <Route
+          path="/PurchaseHistory"
+          element={<PurchaseHistory purchaseHistory={purchaseHistory} />}
+        />
       </Routes>
-    </div>
+      </div>
   );
 }
 

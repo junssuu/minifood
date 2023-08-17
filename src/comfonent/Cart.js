@@ -2,11 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 import Header from './Header';
 
-const Cart = ({ cartItem, cartCountChange }) => {
+const Cart = ({ cartItem, cartCountChange, clearCart, addPurchaseHistory }) => {
 
   //장바구니 총 금액 계산
   const totalPrice = cartItem.reduce((total, item) => total + item.price * item.count, 0);
   const navigate = useNavigate();
+  
+  const handleOrder = () => {
+    addPurchaseHistory(cartItem);
+    clearCart();
+    alert('주문 정보를 입력하세요.');
+    navigate('/Privacy');
+  };
 
   return (
       <div>
@@ -40,8 +47,10 @@ const Cart = ({ cartItem, cartCountChange }) => {
           <div className="button-container">
             <button onClick={() => navigate('/Allproduct')}>상품 추가하기</button>
             <button onClick={() => {
-              alert('결제 창으로 이동합니다.')
-              navigate('/privacy')}}>주문하기</button>
+              handleOrder();
+            }}>
+            주문하기
+            </button>
           </div>
         </div>
       </div>
