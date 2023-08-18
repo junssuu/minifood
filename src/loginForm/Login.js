@@ -10,9 +10,10 @@ const Login = () => {
 
   const IdPwCheck = () => {
     if (!id || !pw) {
-      alert('ID와 PW를 확인하세요.')
+      alert('ID와 PW를 확인하세요.');
     } else {
-      navigate('/Privacy');
+      alert("로그인 완료");
+      navigate('/');
     }
   }
 

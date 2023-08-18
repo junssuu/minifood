@@ -40,14 +40,8 @@ const MainCarousel = () => {
         <img class = "recommendimg"src={img4} alt="그림4"/>
       </StyledSlider>
       <button style = {btnStyle} class = "orderbutton" onClick={() => {
-        let temp = window.confirm("로그인 하시겠습니까?");
-        console.log(temp);
-        if(temp === true) {
-          navigate('/Login');
-        } else {
-          alert("로그인 후 주문이 가능합니다.");
-        }
-      }}>구매하기</button>
+        navigate("/AllProduct");
+      }}>상품 더보기</button>
       <p class="price"> 가격 : 5,900원</p>
     </div>
     

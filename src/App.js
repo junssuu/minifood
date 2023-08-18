@@ -43,6 +43,10 @@ function App(props) {
     setCartItem([]); // 장바구니 내역을 빈 배열로 설정하여 비우기
   };
 
+  const clearpurchaseHistory = () => {
+    setPurchaseHistory([]); // 장바구니 내역을 빈 배열로 설정하여 비우기
+  };
+
   const addPurchaseHistory = (items) => {
     setPurchaseHistory((prevHistory) => [...prevHistory, ...items]);
   };
@@ -72,7 +76,8 @@ function App(props) {
         {/* 구매내역페이지 */}
         <Route
           path="/PurchaseHistory"
-          element={<PurchaseHistory purchaseHistory={purchaseHistory} />}
+          element={<PurchaseHistory 
+          purchaseHistory={purchaseHistory} clearpurchaseHistory={clearpurchaseHistory} />}
         />
       </Routes>
       </div>

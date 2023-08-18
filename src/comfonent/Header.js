@@ -3,6 +3,7 @@ import "./Header.css";
 import logo from "./img/로고.png"
 import { useNavigate } from 'react-router-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import 로그인아이콘 from "./img/LoginIcon.JPG";
 
 
 const Header = () => {
@@ -24,6 +25,10 @@ const Header = () => {
               <Nav.Link onClick={() => { navigate('/Customer') }}>고객센터</Nav.Link>
             </Nav>
           </Container>
+          <div className='loginicon'>
+            <img onClick={() => { navigate('/Login') }}
+            src={로그인아이콘} alt='로그인아이콘'/>
+          </div>
         </Navbar>
       </div>
     </>
