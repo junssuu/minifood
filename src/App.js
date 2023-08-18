@@ -46,8 +46,8 @@ function App(props) {
   };
 
   // 구매내역 삭제
-  const clearpurchaseHistory = () => {
-    setPurchaseHistory([]);
+  const clearpurchaseHistory = (itemId) => {
+    setPurchaseHistory((prevHistory) => prevHistory.filter((item) => item.id !== itemId));
   };
 
   // 장바구니에서 구매 완료 시 구매내역으로 옮겨주기

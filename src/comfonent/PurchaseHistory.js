@@ -2,7 +2,16 @@
 import Header from './Header';
 import './PurchaseHistory.css';
 
-const PurchaseHistory = ({ purchaseHistory, clearpurchaseHistory}) => {
+const PurchaseHistory = ({ purchaseHistory, clearpurchaseHistory }) => {
+
+  const PurchaseCancel = (itemId) => {
+    let temp = window.confirm('정말 취소하시겠습니까?');
+    if (temp === true) {
+      alert('구매내역이 삭제 되었습니다.');
+      clearpurchaseHistory(itemId); // 이 부분을 수정합니다.
+    }
+  };
+
   return (
     <>
       <Header />
@@ -19,12 +28,8 @@ const PurchaseHistory = ({ purchaseHistory, clearpurchaseHistory}) => {
                 <p>가격: {data.price}원</p>
                 <p>수량: {data.count}</p>
               </div>
-              <button className="deleteHistory" onClick={() => {
-                let temp = window.confirm('정말 취소하시겠습니까?');
-                if(temp === true){
-                  alert('구매내역이 삭제 되었습니다.');
-                  clearpurchaseHistory();
-                }}}>구매취소</button>
+              <button className="deleteHistory" onClick={() => PurchaseCancel(data.id)}>
+              구매취소</button>
             </li>
           ))}
         </ul>
