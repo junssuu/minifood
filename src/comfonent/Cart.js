@@ -6,9 +6,12 @@ const Cart = ({ cartItem, cartCountChange, clearCart, addPurchaseHistory }) => {
 
   //장바구니 총 금액 계산
   const totalPrice = cartItem.reduce((total, item) => total + item.price * item.count, 0);
+  
   const navigate = useNavigate();
   
-  const handleOrder = () => {
+  // 주문하면 장바구니에 있던 상품을 구매내역으로 이동하고
+  // 장바구니는 비워주기
+  const PurchaseHistoryMovement = () => {
     addPurchaseHistory(cartItem);
     clearCart();
     alert('주문 정보를 입력하세요.');
@@ -47,9 +50,8 @@ const Cart = ({ cartItem, cartCountChange, clearCart, addPurchaseHistory }) => {
           <div className="button-container">
             <button onClick={() => navigate('/Allproduct')}>상품 추가하기</button>
             <button onClick={() => {
-              handleOrder();
-            }}>
-            주문하기
+              PurchaseHistoryMovement();
+            }}>주문하기
             </button>
           </div>
         </div>

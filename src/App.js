@@ -13,7 +13,7 @@ function App(props) {
   const [cartItem, setCartItem] = useState([]);
   const [purchaseHistory, setPurchaseHistory] = useState([]);
   
-
+  // 장바구니에 상품 추가
   const AddToCart = (item) => {
     const sameItem = cartItem.find((cartItem) => cartItem.id === item.id);
     if (sameItem) {
@@ -27,6 +27,7 @@ function App(props) {
     }
   };
 
+  //버튼 클릭 시 장바구니 수량 늘리고 줄이고
   const cartCountChange = (itemId, newCount) => {
     if (newCount <= 0) {
       setCartItem((prevsetCartProduct) =>
@@ -39,14 +40,17 @@ function App(props) {
     }
   };
 
+  // 장바구니 비워주기
   const clearCart = () => {
-    setCartItem([]); // 장바구니 내역을 빈 배열로 설정하여 비우기
+    setCartItem([]);
   };
 
+  // 구매내역 삭제
   const clearpurchaseHistory = () => {
-    setPurchaseHistory([]); // 장바구니 내역을 빈 배열로 설정하여 비우기
+    setPurchaseHistory([]);
   };
 
+  // 장바구니에서 구매 완료 시 구매내역으로 옮겨주기
   const addPurchaseHistory = (items) => {
     setPurchaseHistory((prevHistory) => [...prevHistory, ...items]);
   };

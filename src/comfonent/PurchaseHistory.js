@@ -19,13 +19,12 @@ const PurchaseHistory = ({ purchaseHistory, clearpurchaseHistory}) => {
                 <p>가격: {data.price}원</p>
                 <p>수량: {data.count}</p>
               </div>
-                <button onClick={() => {
-                  let temp = window.confirm('정말 취소하시겠습니까?');
-                  if(temp === true){
-                    alert('구매내역이 삭제 되었습니다.');
-                    clearpurchaseHistory();
-                  }
-                }}>구매취소</button>
+              <button className="deleteHistory" onClick={() => {
+                let temp = window.confirm('정말 취소하시겠습니까?');
+                if(temp === true){
+                  alert('구매내역이 삭제 되었습니다.');
+                  clearpurchaseHistory();
+                }}}>구매취소</button>
             </li>
           ))}
         </ul>

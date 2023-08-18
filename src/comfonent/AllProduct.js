@@ -24,7 +24,8 @@ const AllProduct = ({ AddToCart }) => {
   ];
 
   const navigate = useNavigate();
-  
+
+  //장바구니에 클릭한 상품 추가
   const AddToCartClick = (data) => {
     const temp = window.confirm('장바구니에 담으시겠습니까?');
     if (temp) {
@@ -39,7 +40,9 @@ const AllProduct = ({ AddToCart }) => {
   return (
     <>
       <Header />
+
       <h1>전체 상품 리스트</h1>
+
       <div className='allList'>
         {item.map((data, i) => (
           <div key={i}>

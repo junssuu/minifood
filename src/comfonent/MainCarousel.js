@@ -42,7 +42,6 @@ const MainCarousel = () => {
       <button style = {btnStyle} class = "orderbutton" onClick={() => {
         navigate("/AllProduct");
       }}>상품 더보기</button>
-      <p class="price"> 가격 : 5,900원</p>
     </div>
     
   );
