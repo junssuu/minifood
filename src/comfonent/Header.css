@@ -21,3 +21,7 @@
 .loginicon {
   width: 15%;
 }
+
+.loginicon > img {
+  width: 40px;
+}

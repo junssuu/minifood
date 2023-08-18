@@ -5,8 +5,9 @@ import Header from './Header';
 const Cart = ({ cartItem, cartCountChange, clearCart, addPurchaseHistory }) => {
 
   //장바구니 총 금액 계산
-  const totalPrice = cartItem.reduce((total, item) => total + item.price * item.count, 0);
-  
+  const totalPrice = cartItem.reduce((acc, cur) => 
+  acc + cur.price * cur.count, 0);
+
   const navigate = useNavigate();
   
   // 주문하면 장바구니에 있던 상품을 구매내역으로 이동하고

@@ -19,9 +19,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      <Header />
       <div className="login-wrapper">
         <h2>Login</h2>
         <form method="get" action="#" id="login-form">
