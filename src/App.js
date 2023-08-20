@@ -13,30 +13,35 @@ function App(props) {
   const [cartItem, setCartItem] = useState([]); //장바구니에 담긴 상품
   const [purchaseHistory, setPurchaseHistory] = useState([]); // 구매내역에 담긴 상품
   
-  // 장바구니에 상품 추가
+  //장바구니에 상품 추가
   const AddToCart = (item) => {
     const sameItem = cartItem.find((cartItem) => cartItem.id === item.id);
     if (sameItem) {
-      setCartItem((prevCartItems) =>
-        prevCartItems.map((cartItem) =>
+      setCartItem(() => {
+        const updatedCart = cartItem.map((cartItem) =>
           cartItem.id === item.id ? { ...cartItem, count: cartItem.count + 1 } : cartItem
-        )
-      );
+        );
+        return updatedCart;
+      });
     } else {
-      setCartItem((prevcartProduct) => [...prevcartProduct, { ...item, count: 1 }]);
+      setCartItem((currentCart) => [...currentCart, { ...item, count: 1 }]);
     }
   };
-
-  //버튼 클릭 시 장바구니 수량 늘리고 줄이고
+  
+  // 장바구니 수량 늘리고 줄이기
   const cartCountChange = (itemId, newCount) => {
     if (newCount <= 0) {
-      setCartItem((prevsetCartProduct) =>
-        prevsetCartProduct.filter((item) => item.id !== itemId)
-      );
+      setCartItem(() => {
+        const updatedCart = cartItem.filter((item) => item.id !== itemId);
+        return updatedCart;
+      });
     } else {
-      setCartItem((prevCartProduct) =>
-        prevCartProduct.map((item) => (item.id === itemId ? { ...item, count: newCount } : item))
-      );
+      setCartItem(() => {
+        const updatedCart = cartItem.map((item) =>
+          item.id === itemId ? { ...item, count: newCount } : item
+        );
+        return updatedCart;
+      });
     }
   };
 
@@ -47,12 +52,14 @@ function App(props) {
 
   // 구매내역 삭제
   const clearpurchaseHistory = (itemId) => {
-    setPurchaseHistory((prevHistory) => prevHistory.filter((item) => item.id !== itemId));
+    setPurchaseHistory((currentHistory) =>
+      currentHistory.filter((item) => item.id !== itemId)
+    );
   };
 
   // 장바구니에서 구매 완료 시 구매내역으로 옮겨주기
   const addPurchaseHistory = (items) => {
-    setPurchaseHistory((prevHistory) => [...prevHistory, ...items]);
+    setPurchaseHistory((currentHistory) => [...currentHistory, ...items]);
   };
 
   return (
