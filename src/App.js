@@ -10,8 +10,8 @@ import Cart from './comfonent/Cart';
 import PurchaseHistory from './comfonent/PurchaseHistory';
 
 function App(props) {
-  const [cartItem, setCartItem] = useState([]);
-  const [purchaseHistory, setPurchaseHistory] = useState([]);
+  const [cartItem, setCartItem] = useState([]); //장바구니에 담긴 상품
+  const [purchaseHistory, setPurchaseHistory] = useState([]); // 구매내역에 담긴 상품
   
   // 장바구니에 상품 추가
   const AddToCart = (item) => {
